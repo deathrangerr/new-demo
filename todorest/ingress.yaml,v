@@ -1,0 +1,52 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols 
+	start:1.1.1.1
+	project:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2022.04.20.10.28.02;  author shanmugapriya.d;  state Exp;
+branches 1.1.1.1;
+next     ;
+deltatype   text;
+permissions	644;
+
+1.1.1.1
+date     2022.04.20.10.28.02;  author shanmugapriya.d;  state Exp;
+branches ;
+next     ;
+permissions	644;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basic-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "web-static-ip"
+spec:
+  backend:
+    serviceName: todo-deploy
+    servicePort: 8080@
+
+
+1.1.1.1
+log
+@title
+@
+text
+@@

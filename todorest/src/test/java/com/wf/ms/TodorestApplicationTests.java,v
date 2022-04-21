@@ -1,0 +1,95 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols 
+	start:1.1.1.1
+	project:1.1.1;
+locks    ; strict;
+comment  @// @;
+
+
+1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches 1.1.1.1;
+next     ;
+deltatype   text;
+permissions	644;
+
+1.1.1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches ;
+next     ;
+permissions	644;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@package com.wf.ms;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Date;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wf.ms.model.Todo;
+
+@@SpringBootTest
+@@AutoConfigureMockMvc
+class TodorestApplicationTests {
+
+	@@Autowired
+	private MockMvc mockMvc;
+
+	
+	@@Test
+	public void getTodos() throws Exception
+	{	
+		mockMvc.perform(
+				MockMvcRequestBuilders.get("/todos"))
+		.andExpect(status().isOk());
+	}
+	
+	@@Test
+	public void createTodo() throws Exception
+	{	
+		
+		Todo test = new Todo();
+		test.setDes("Testing now");
+		test.setDone(false);
+		test.setTargetDate(new Date());
+		test.setUser("Anil");
+		
+		ObjectMapper om = new ObjectMapper();
+		
+		mockMvc.perform(
+				MockMvcRequestBuilders.post("/todos")
+				.accept(MediaType.APPLICATION_JSON)
+				.content(om.writeValueAsString(test)))
+		.andExpect(status().isCreated());
+	}
+}
+@
+
+
+1.1.1.1
+log
+@title
+@
+text
+@@
