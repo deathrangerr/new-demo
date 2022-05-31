@@ -1,0 +1,59 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols 
+	start:1.1.1.1
+	project:1.1.1;
+locks    ; strict;
+comment  @// @;
+
+
+1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches 1.1.1.1;
+next     ;
+deltatype   text;
+permissions	644;
+
+1.1.1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches ;
+next     ;
+permissions	644;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@package com.wf.ms.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import com.wf.ms.model.Todo;
+
+@@RepositoryRestResource //(collectionResourceRel = "todos", itemResourceRel = "todo")
+public interface TodoRepository extends JpaRepository<Todo, Integer> {
+
+	List<Todo> findByUser(String user);
+	
+	List<Todo> findByDoneFalse();
+}
+@
+
+
+1.1.1.1
+log
+@title
+@
+text
+@@

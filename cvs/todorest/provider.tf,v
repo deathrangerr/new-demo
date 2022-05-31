@@ -1,0 +1,48 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols 
+	start:1.1.1.1
+	project:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches 1.1.1.1;
+next     ;
+deltatype   text;
+permissions	644;
+
+1.1.1.1
+date     2022.04.20.10.28.03;  author shanmugapriya.d;  state Exp;
+branches ;
+next     ;
+permissions	644;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@provider "google" {
+  credentials = file("/home/anil_singapore4/sc.json")
+  project     = "sg-project-1-264708"
+  region      = "us-central1"
+}
+@
+
+
+1.1.1.1
+log
+@title
+@
+text
+@@

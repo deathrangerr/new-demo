@@ -1,0 +1,49 @@
+head     1.1;
+branch   1.1.1;
+access   ;
+symbols 
+	start:1.1.1.1
+	project:1.1.1;
+locks    ; strict;
+comment  @# @;
+
+
+1.1
+date     2022.04.20.10.28.02;  author shanmugapriya.d;  state Exp;
+branches 1.1.1.1;
+next     ;
+deltatype   text;
+permissions	644;
+
+1.1.1.1
+date     2022.04.20.10.28.02;  author shanmugapriya.d;  state Exp;
+branches ;
+next     ;
+permissions	644;
+
+
+desc
+@@
+
+
+
+1.1
+log
+@Initial revision
+@
+text
+@resource "google_container_cluster" "gke-cluster" {
+  name               = "my-first-gke-cluster1"
+  network            = "default"
+  location           = "us-central1-a"
+  initial_node_count = 1
+}
+@
+
+
+1.1.1.1
+log
+@title
+@
+text
+@@
